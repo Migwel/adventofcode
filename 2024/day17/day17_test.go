@@ -54,7 +54,7 @@ Register B: 0
 Register C: 0
 
 Program: 2,4,1,2,7,5,1,3,4,4,5,5,0,3,3,0`)
-	if result != 117440 {
-		t.Errorf("Got %d instead of 117440", result)
+	if result != 37222273957364 {
+		t.Errorf("Got %d instead of 37222273957364", result)
 	}
 }

@@ -21,12 +21,36 @@ func executeProgram(input string) string {
 
 func copyProgram(input string) int {
 	_, bRegister, cRegister, instructions := parseInput(input)
-	expectedOutput := computeExpectedOutput(instructions)
+	trackingIndex := 0
+	subOutput := computeSubOutput(trackingIndex, instructions)
 	for i := 0; ; i++ {
-		if isExpectedOutput(Register(i), bRegister, cRegister, instructions, expectedOutput) {
-			return i
+		output := executeInstructions(Register(i), bRegister, cRegister, instructions)
+		if output == subOutput {
+			trackingIndex += 1
+			if trackingIndex == 2*len(instructions) {
+				return i
+			}
+			i = i << 3
+			i -= 1
+			subOutput = computeSubOutput(trackingIndex, instructions)
 		}
 	}
+	return -1
+}
+
+func computeSubOutput(trackingIndex int, instructions []Instruction) string {
+	nextValue := ""
+	for i := trackingIndex; i >= 0; i-- {
+		if i != trackingIndex {
+			nextValue += ","
+		}
+		if i%2 == 0 {
+			nextValue += strconv.Itoa(instructions[len(instructions)-1-i/2].operand)
+		} else {
+			nextValue += strconv.Itoa(instructions[len(instructions)-1-i/2].opcode)
+		}
+	}
+	return nextValue
 }
 
 func isExpectedOutput(aRegister, bRegister, cRegister Register, instructions []Instruction, expectedOutput string) bool {
@@ -64,18 +88,6 @@ func canBeExpectedOutput(output, expectedOutput string) bool {
 		}
 	}
 	return true
-}
-
-func computeExpectedOutput(instructions []Instruction) string {
-	output := ""
-	for _, instruction := range instructions {
-		if output == "" {
-			output += strconv.Itoa(instruction.opcode) + "," + strconv.Itoa(instruction.operand)
-		} else {
-			output += "," + strconv.Itoa(instruction.opcode) + "," + strconv.Itoa(instruction.operand)
-		}
-	}
-	return output
 }
 
 func executeInstructions(aRegister, bRegister, cRegister Register, instructions []Instruction) string {
