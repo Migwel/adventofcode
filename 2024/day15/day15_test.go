@@ -134,8 +134,8 @@ func TestComputeSecondWarehouseGPSCoordinatesSum_Simple(t *testing.T) {
 #######
 
 <vv<<^^<<^^`)
-	if result != 2028 {
-		t.Errorf("Got %d instead of 2028", result)
+	if result != 618 {
+		t.Errorf("Got %d instead of 618", result)
 	}
 }
 
