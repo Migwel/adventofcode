@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"testing"
@@ -34,7 +34,7 @@ func TestCheckSafetyWithDampener_Simple(t *testing.T) {
 
 func TestCheckSafetyWithDampener_Example(t *testing.T) {
 	var nbSafe = checkSafetyWithDampener([][]int{{7, 6, 4, 2, 1}, {1, 2, 7, 8, 9}, {9, 7, 6, 2, 1}, {1, 3, 2, 4, 5}, {8, 6, 4, 4, 1}, {1, 3, 6, 7, 9}})
-	if nbSafe !=4 {
+	if nbSafe != 4 {
 		t.Errorf("Got %d instead of 4", nbSafe)
 	}
 }
