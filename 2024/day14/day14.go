@@ -1,7 +1,6 @@
 package day14
 
 import (
-	"fmt"
 	"math"
 	"regexp"
 	"strconv"
@@ -51,17 +50,7 @@ func isChristmasTree(area Area) bool {
 			}
 		}
 	}
-	displayArea(area)
 	return true
-}
-
-func displayArea(area Area) {
-	for _, row := range area.tiles {
-		for _, tile := range row {
-			fmt.Print(len(tile.robots))
-		}
-		fmt.Println()
-	}
 }
 
 func computeScore(tiles [][]Tile) int {

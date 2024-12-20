@@ -1029,7 +1029,7 @@ p=51,93 v=79,-76
 p=81,12 v=-81,-31
 p=19,13 v=-96,-50
 p=42,26 v=57,-55`, 103, 101)
-	if result != 236628054 {
-		t.Errorf("Got %d instead of 236628054", result)
+	if result != 7584 {
+		t.Errorf("Got %d instead of 7584", result)
 	}
 }

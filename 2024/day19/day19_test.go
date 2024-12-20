@@ -847,7 +847,7 @@ rrgbbbbrguwbgubgbuwbgbubububrwgwgbbwwbbwgrubrurbrwrrw
 wbwguwgwrbrbwruuwwuwguuguuubgbuwrwubuuugggrrgwrwgwrbgwubg
 wbwwgwggwwgurrwrwwwgugrrggwrbgbrgwgggbuugrwub
 wggbbrguwwwgbrgrguggwrgwgubbruwubbubrbrwggbuwgrwbrur`)
-	if result != 220 {
-		t.Errorf("Got %d instead of 220", result)
+	if result != 565600047715343 {
+		t.Errorf("Got %d instead of 565600047715343", result)
 	}
 }

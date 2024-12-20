@@ -1,7 +1,6 @@
 package day6
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -17,7 +16,6 @@ const (
 func countDistrinctPosition(carteInput string) int {
 	carte, orientation, startPosX, startPosY := parseMap(carteInput)
 	browseCarte(carte, orientation, startPosX, startPosY)
-	displayCarte(carte)
 	return countVisitedCells(carte)
 }
 
@@ -93,16 +91,6 @@ func isLoop(carte [][]rune, orientation ORIENTATION, startPosX, startPosY, remai
 		}
 	}
 	return false
-}
-
-func displayCarte(carte [][]rune) {
-	for i := 0; i < len(carte); i++ {
-		row := carte[i]
-		for j := 0; j < len(row); j++ {
-			fmt.Print((string)(carte[i][j]))
-		}
-		fmt.Println()
-	}
 }
 
 func countVisitedCells(carte [][]rune) int {

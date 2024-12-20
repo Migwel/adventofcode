@@ -3486,8 +3486,8 @@ func TestComputeMinimalNumberOfSteps_Input(t *testing.T) {
 8,45
 2,47
 54,39`, 71, 71, 1024)
-	if result != 22 {
-		t.Errorf("Got %d instead of 22", result)
+	if result != 344 {
+		t.Errorf("Got %d instead of 344", result)
 	}
 }
 
@@ -6973,7 +6973,7 @@ func TestFindFirstCorruptingByte_Input(t *testing.T) {
 8,45
 2,47
 54,39`, 71, 71)
-	if result.y != 1 && result.x != 6 {
-		t.Errorf("Got (%d, %d) instead of (6,1)", result.x, result.y)
+	if result.y != 2 && result.x != 46 {
+		t.Errorf("Got (%d, %d) instead of (46, 2)", result.x, result.y)
 	}
 }
